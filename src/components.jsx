@@ -37,41 +37,14 @@ export function Scoreboard({
 
 }
 
-export function BallToast({ balls }) {
-
-    return (
-
-        <>
-
-            {
-
-                balls.map(ball => (
-
-                    <div
-                        key={ball.id}
-                        className="ball-toast"
-                        style={{
-
-                            left: `${ball.left}%`,
-                            width: ball.size,
-
-                            height: ball.size
-
-                        }}
-                    >
-
-                        ⚽
-
-                    </div>
-
-                ))
-
-            }
-
-        </>
-
-    );
-
+export function BallToast({ toast = null, players = [] }) {
+  if (!toast) return null;
+  const playerName = players[toast.player] || `Jugador ${toast.player + 1}`;
+  return (
+    <div className="ball-toast-global">
+      <div className="ball-toast-content">{playerName}: {toast.text}</div>
+    </div>
+  );
 }
 
 
