@@ -555,6 +555,8 @@ function NamesScreen({ numPlayers, mode, onBack, onConfirm }) {
         {numPlayers === 1 ? 'Tu nombre' : 'Nombre Jugador 1'}
       </p>
       <input
+        id="player1"
+        name="player1"
         maxLength={12}
         placeholder="JUGADOR 1"
         value={p1}
@@ -565,6 +567,8 @@ function NamesScreen({ numPlayers, mode, onBack, onConfirm }) {
         <>
           <p style={{ textAlign: 'center', fontSize: 16, marginBottom: 6 }}>Nombre Jugador 2</p>
           <input
+            id="player2"
+            name="player2"
             maxLength={12}
             placeholder="JUGADOR 2"
             value={p2}
