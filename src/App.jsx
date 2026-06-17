@@ -432,31 +432,38 @@ export default function App() {
         <CupOverlay cupWinner={balls.cupWinner} players={players} onContinue={balls.dismissToast} />
 
         <div className="turn-banner">{turnBanner}</div>
-        <Scoreboard players={players} scores={scores} turn={turn} numPlayers={numPlayers} balls={balls.balls} cupWinner={balls.cupWinner} />
 
-        {mode === 'muerte' && !showGoalScreen && (
-          <MuerteSubitaView energy={energy} currentQ={currentQ} answered={answered} onAnswer={handleAnswerMuerte} />
-        )}
+        <div className="game-layout">
+          <div className="sidebar">
+            <Scoreboard players={players} scores={scores} turn={turn} numPlayers={numPlayers} balls={balls.balls} cupWinner={balls.cupWinner} />
+          </div>
 
-        {mode === 'var' && (
-          <VarView qIndex={qIndex} isVarQuestion={isVarQuestion} varDoublePending={varDoublePending[turn]} currentQ={currentQ} answered={answered} feedback={feedback} onAnswer={handleAnswerVar} />
-        )}
+          <div className="game-panel">
+            {mode === 'muerte' && !showGoalScreen && (
+              <MuerteSubitaView energy={energy} currentQ={currentQ} answered={answered} onAnswer={handleAnswerMuerte} />
+            )}
 
-        {mode === 'viaje' && (
-          <ViajeView year={YEARS[yearIndex]} yearIndex={yearIndex} currentQ={currentQ} answered={answered} onAnswer={handleAnswerViaje} />
-        )}
+            {mode === 'var' && (
+              <VarView qIndex={qIndex} isVarQuestion={isVarQuestion} varDoublePending={varDoublePending[turn]} currentQ={currentQ} answered={answered} feedback={feedback} onAnswer={handleAnswerVar} />
+            )}
 
-        {mode === 'racha' && (
-          <RachaView qIndex={qIndex} streak={streak[turn]} currentQ={currentQ} answered={answered} onAnswer={handleAnswerRacha} />
-        )}
+            {mode === 'viaje' && (
+              <ViajeView year={YEARS[yearIndex]} yearIndex={yearIndex} currentQ={currentQ} answered={answered} onAnswer={handleAnswerViaje} />
+            )}
 
-        {mode === 'penales' && !showGoalScreen && (
-          <PenalesView progress={penalProgress[turn]} currentQ={currentQ} answered={answered} onAnswer={handleAnswerPenal} />
-        )}
+            {mode === 'racha' && (
+              <RachaView qIndex={qIndex} streak={streak[turn]} currentQ={currentQ} answered={answered} onAnswer={handleAnswerRacha} />
+            )}
 
-        {mode === 'penales' && showGoalScreen && (
-          <GoalScreen playerName={players[turn]} onContinue={continueAfterGoal} />
-        )}
+            {mode === 'penales' && !showGoalScreen && (
+              <PenalesView progress={penalProgress[turn]} currentQ={currentQ} answered={answered} onAnswer={handleAnswerPenal} />
+            )}
+
+            {mode === 'penales' && showGoalScreen && (
+              <GoalScreen playerName={players[turn]} onContinue={continueAfterGoal} />
+            )}
+          </div>
+        </div>
       </Cabinet>
     );
   }

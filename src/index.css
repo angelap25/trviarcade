@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
 @font-face {
   font-family: 'PressStart';
   src: local('Press Start 2P');
 }
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
 :root{
   --grass-dark:#0a3d1f;
@@ -65,10 +66,10 @@ html,body{
   box-shadow:
     inset 0 0 60px rgba(0,0,0,0.65),
     inset 0 0 4px rgba(0,0,0,0.9);
-  padding:18px 16px;
+  padding:20px 18px;
   position:relative;
   overflow:hidden;
-  min-height:480px;
+  min-height:520px;
 }
 
 /* scanlines CRT */
@@ -112,6 +113,24 @@ html,body{
   justify-content:space-between;
   gap:8px;
   margin-bottom:14px;
+}
+
+.game-layout {
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.sidebar {
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.game-panel {
+  display:flex;
+  flex-direction:column;
+  gap:18px;
 }
 .player-led{
   flex:1;
@@ -387,3 +406,54 @@ html,body{
 .small-note{ text-align:center; font-size:14px; opacity:0.7; margin-top:10px; }
 
 @media (max-width:380px){ .pixel-title{ font-size:13px; } .mode-card .mtitle{ font-size:10px; } }
+
+@media (min-width:900px) {
+  .cabinet{
+    max-width:1080px;
+    padding:24px 24px 30px;
+  }
+
+  .screen{
+    min-height:620px;
+    padding:26px 22px;
+  }
+
+  .mode-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:14px;
+  }
+
+  .mode-card{
+    min-height:140px;
+  }
+
+  .game-layout{
+    display:grid;
+    grid-template-columns:320px minmax(0, 1fr);
+    gap:24px;
+    align-items:start;
+  }
+
+  .options{
+    gap:12px;
+  }
+
+  .option-btn{
+    font-size:18px;
+    padding:14px 16px;
+  }
+
+  .question-box{
+    min-height:140px;
+  }
+
+  .btn-row{
+    justify-content:flex-start;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    min-width:180px;
+  }
+}
