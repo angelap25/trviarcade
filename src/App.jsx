@@ -596,7 +596,7 @@ const inputStyle = {
 };
 
 function OptionsList({ currentQ, answered, onAnswer }) {
-  if (!currentQ) return null;
+  if (!currentQ || !Array.isArray(currentQ.options)) return null;
   return (
     <div className="options">
       {currentQ.options.map((opt, i) => {
